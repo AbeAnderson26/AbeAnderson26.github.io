@@ -1,0 +1,264 @@
+/* =========================================================
+   Portfolio stylesheet
+   Palette: near-black text, three grays, one hairline border
+   ========================================================= */
+
+:root {
+  --ink: #1a1a1a;
+  --gray-700: #4a4a4a;
+  --gray-400: #8a8a8a;
+  --gray-100: #f2f2f0;
+  --paper: #fafaf9;
+  --line: #d8d8d5;
+  --max-width: 760px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Georgia", "Iowan Old Style", serif;
+  line-height: 1.6;
+  font-size: 17px;
+}
+
+a {
+  color: var(--ink);
+  text-decoration-color: var(--gray-400);
+  text-underline-offset: 3px;
+}
+
+a:hover {
+  text-decoration-color: var(--ink);
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+}
+
+/* ---------- Layout shell ---------- */
+
+.wrap {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ---------- Nav ---------- */
+
+nav.site-nav {
+  position: sticky;
+  top: 0;
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+  z-index: 10;
+}
+
+nav.site-nav .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+
+.nav-name {
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.01em;
+}
+
+.nav-links {
+  display: flex;
+  gap: 22px;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.92rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--gray-700);
+  margin-left: 22px;
+}
+
+.nav-links a:first-child {
+  margin-left: 0;
+}
+
+.nav-links a:hover {
+  color: var(--ink);
+}
+
+/* Mobile nav collapses to a smaller, wrapped row rather than a hidden menu,
+   so there is no JS dependency required to reach any section. */
+@media (max-width: 520px) {
+  nav.site-nav .wrap {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .nav-links {
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+}
+
+/* ---------- Header / hero ---------- */
+
+header.hero {
+  padding: 64px 0 48px;
+  border-bottom: 1px solid var(--line);
+}
+
+header.hero h1 {
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  margin: 0 0 6px;
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+header.hero p.title {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  color: var(--gray-700);
+  font-size: 1.05rem;
+  margin: 0 0 4px;
+}
+
+header.hero p.school {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  color: var(--gray-400);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+/* ---------- Sections ---------- */
+
+section {
+  padding: 48px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+section:last-of-type {
+  border-bottom: none;
+}
+
+section h2 {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--gray-400);
+  margin: 0 0 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--line);
+}
+
+section p {
+  margin: 0 0 14px;
+  max-width: 68ch;
+}
+
+/* ---------- Skills ---------- */
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 12px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+.skills-list li {
+  border: 1px solid var(--line);
+  padding: 6px 14px;
+  font-size: 0.88rem;
+  color: var(--gray-700);
+}
+
+/* ---------- Projects ---------- */
+
+.project-row {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 6px 24px;
+  padding: 18px 0;
+  border-top: 1px solid var(--line);
+}
+
+.project-row:first-of-type {
+  border-top: none;
+}
+
+.project-row .project-name {
+  font-weight: 700;
+}
+
+.project-row .project-desc {
+  color: var(--gray-700);
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.95rem;
+}
+
+.project-row .project-desc .status {
+  display: inline-block;
+  margin-top: 6px;
+  font-size: 0.78rem;
+  color: var(--gray-400);
+  font-style: italic;
+}
+
+@media (max-width: 520px) {
+  .project-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- Resume / Contact ---------- */
+
+.button {
+  display: inline-block;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.92rem;
+  padding: 10px 20px;
+  border: 1px solid var(--ink);
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.button:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+ul.contact-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.98rem;
+}
+
+ul.contact-list li {
+  padding: 6px 0;
+}
+
+/* ---------- Footer ---------- */
+
+footer {
+  padding: 28px 0 48px;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.82rem;
+  color: var(--gray-400);
+}
